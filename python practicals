@@ -1,0 +1,1864 @@
+                                    Set-1 
+                                  Practical-1 
+Aim: A program that converts temperatures from Fahrenheit to Celsius and vice versa. 
+Source Code: 
+f = float(input("Enter the temperature in fahrenheit: "))     
+celsius = (f - 32) * 5 / 9 
+print("Temperature in Celsius:", round(celsius, 3)) 
+Output: 
+Enter the temperature in fahrenheit: 50 
+Temperature in Celsius: 10.0 
+
+
+                                  Practical-2 
+Aim: A program that calculates the area and perimeter of a rectangle. 
+Source code: 
+l = float(input("Enter the length of rectange in metre: "))  
+b = float(input("Enter the breadth of rectange in metre: "))  
+area = l*b 
+perimeter = 2*(l+b) 
+print("Perimeter of the rectangle is: ", round(perimeter, 3)) 
+print("Area of the rectangle is: ", round(area, 3)) 
+Output: 
+Enter the length of rectange in metre: 50 
+Enter the breadth of rectange in metre: 20 
+Perimeter of the rectangle is:  140.0 
+Area of the rectangle is:  1000.0 
+
+
+                                Practical-3 
+Aim: A program that generates a random password of a specified length. 
+Source code: 
+import string 
+import random 
+len = int(input("Enter the length of the password: ")) 
+for i in range(len): 
+print(random.choice(string.ascii_letters + string.digits + string.punctuation), end = "") 
+print() 
+Output: 
+Enter the length of the password: 7 
+xY'GSBB 
+
+
+
+                                 Practical-4 
+Aim: A program that calculates the average of a list of numbers. 
+Source code: 
+len = int(input("Enter number of elements in the list: ")) 
+nos = [] 
+print("Enter the elements: ") 
+for i in range(len): 
+num = float(input("Element: ")) 
+nos.append(num) 
+avg = sum(nos) / len 
+print("Average of the list numbers is: ", round(avg, 3)) 
+Output: 
+Enter number of elements in the list: 3 
+Enter the elements:  
+Element: 2 
+Element: 7 
+Element: 9 
+Average of the list numbers is:  6.0 
+
+
+                   Practical-5 
+Aim: A program that checks if a given year is a leap year. 
+Source Code: 
+year = int(input("Enter a year: ")) 
+if((year % 400 == 0) or 
+(year % 100 != 0) and 
+(year % 4 == 0)): 
+print(f"{year} is a leap year.") 
+else: 
+print(f"{year} is not a leap year.") 
+Output: 
+Enter a year: 2004 
+2004 is a leap year. 
+
+
+                      Practical-6 
+Aim: A program that calculates the factorial of a number. 
+Source Code:  
+Without using Recursion: 
+num = int(input("Enter a number: ")) 
+fact = 1 
+if(num == 0 or num ==1): 
+print(f"Factorial of {num} is: 1.") 
+else: 
+for i in range(1, num+1): 
+fact = fact * i 
+print(f"Factorial of {num} is: {fact}.") 
+Using Recursion: 
+num = int(input("Enter a number: ")) 
+def factorial(num): 
+if num == 1 or num == 0: 
+return 1 
+else: 
+return num * factorial(num-1) 
+r = factorial(num) 
+print(f"Factorial of {num} is:",r) 
+Output: 
+Enter a number: 6 
+Factorial of 6 is: 720 
+
+
+                      Practical-7 
+Aim: A program that checks if a given string is a palindrome. 
+Source Code: 
+Approach-1: 
+s = input("Enter a string: ") 
+if(s == s[::-1]): 
+print(f"{s} is palindrome.") 
+else: 
+print(f"{s} is not palindrome.") 
+Approach-2: 
+s = input("Enter a string: ") 
+def palindrome(s): 
+for i in range(0, int(len(s)/2)): 
+if(s[i] != s[len(s)-i-1]): 
+return 0 
+else: 
+return 1 
+r = palindrome(s) 
+if(r): 
+print(f"{s} is palindrome.") 
+else: 
+print(f"{s} is not palindrome.") 
+Output: 
+Enter a string: mam 
+mam is palindrome. 
+
+
+                          Practical-8 
+Aim: A program that sorts a list of numbers in ascending or descending order. 
+Source Code: 
+n = 5 
+lst = [] 
+for _ in range(n): 
+num = int(input("Enter a number: ")) 
+lst.append(num) 
+print(f"Original list: {lst}") 
+lst.sort() 
+print(f"Sorted list in ascending order: {lst}") 
+lst.sort(reverse=True) 
+print(f"Sorted list in descending order: {lst}") 
+Output: 
+Enter a number: 23 
+Enter a number: 8 
+Enter a number: 19 
+Enter a number: 17 
+Enter a number: 11 
+Original list: [23, 8, 19, 17, 11] 
+Sorted list in ascending order: [8, 11, 17, 19, 23] 
+Sorted list in descending order: [23, 19, 17, 11, 8] 
+
+
+
+                         Practical-9 
+Aim: A program that generates a multiplication table for a given number 
+Source Code: 
+n = int(input("Enter a number: ")) 
+for i in range(1,11): 
+print(f"{n} * {i} =", n*i) 
+Output: 
+Enter a number: 10 
+10 * 1 = 10 
+10 * 2 = 20 
+10 * 3 = 30 
+10 * 4 = 40 
+10 * 5 = 50 
+10 * 6 = 60 
+10 * 7 = 70 
+10 * 8 = 80 
+10 * 9 = 90 
+10 * 10 = 100 
+
+ 
+                                          Practical-10 
+Aim: A program that converts a given number from one base to another. 
+Source Code: 
+n = int(input("Enter a number: ")) 
+binary = bin(n) 
+octal = oct(n) 
+hexadecimal = hex(n) 
+print(f"{n} in binary is {binary}.") 
+print(f"{n} in octal is {octal}.") 
+print(f"{n} in hexadecimal is {hexadecimal}.") 
+Output: 
+Enter a number: 19 
+19 in binary is 0b10011. 
+19 in octal is 0o23. 
+19 in hexadecimal is 0x13. 
+
+
+                                                    Set:2
+
+
+                                                 practical:1
+
+A program that models a bank account, with classes for the account, the customer and the bank.
+
+
+class Bank:
+    def _init_(self, bank_name):
+        self.bank_name = bank_name
+        self.All_Customers = {}
+
+    def Add_customer(self, customer):
+        self.All_Customers[customer.customer_id] = customer
+        print(f"ID: {customer.customer_id}. Name: {customer.customer_name} is added.")
+
+    def Remove_customer(self, customer_id):
+        rc = self.All_Customers.pop(customer_id, None)
+        print(f"ID: {customer_id}, Name: {rc.customer_name} is removed.")
+
+    def Display_customer(self):
+        for cust in self.All_Customers.values():
+            print(f"ID: {cust.customer_id}. Name: {cust.customer_name}. Address: {cust.customer_Address}")
+
+
+class Account:
+    def _init_(self, account_number, account_type, account_balance):
+        self.account_number = account_number
+        self.account_type = account_type
+        self.account_balance = account_balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.account_balance += amount
+            print(f"{amount} is credited to your account {self.account_number}. Available balance = {self.account_balance}")
+        else:
+            print("Please give valid amount")
+
+    def withdraw(self, amount):
+        if amount > 0 and amount <= self.account_balance:
+            self.account_balance -= amount
+            print(f"{amount} is debited from your account {self.account_number}. Available balance = {self.account_balance}")
+        else:
+            print("Please give valid amount or insufficient balance")
+
+
+class Customers:
+    def _init_(self, customer_id, customer_name, customer_Address):
+        self.customer_id = customer_id
+        self.customer_name = customer_name
+        self.customer_Address = customer_Address
+
+    def Open_Account(self, account):
+        print(f"Account {account.account_number} is active now")
+
+    def Close_Account(self, account_number):
+        print(f"Account {account_number} is closed now")
+
+
+Bank_1 = Bank("SBI")
+
+c1 = Customers("1", "Rohan", "Ahmedabad")
+# c2 = Customers("2", "Ankit", "Vadodara")
+# c3 = Customers("3", "Yash", "surat")
+print()
+
+Bank_1.Add_customer(c1)
+# Bank_1.Add_customer(c2)
+# Bank_1.Add_customer(c3)
+
+Acc_1 = Account(1, "Personal", 10000)
+c1.Open_Account(Acc_1)
+# Acc_2 = Account(2, "Personal", 20000)
+# c2.Open_Account(Acc_2)
+# Acc_3 = Account(3, "Personal", 30000)
+# c3.Open_Account(Acc_3)
+print()
+
+Acc_1.deposit(5000)
+Acc_1.withdraw(3000)
+# Acc_2.deposit(5000)
+# Acc_2.withdraw(2000)
+# Acc_3.deposit(5000)
+# Acc_3.withdraw(1000)
+print()
+
+Bank_1.Display_customer()
+print()
+Bank_1.Remove_customer("1")
+print()
+Bank_1.Display_customer()
+
+                               practical:2
+
+Aim :. A program that simulates a school management system, with classes for the students, the teachers, and the courses.
+
+class Person:
+    def _init_(self, name, age, ID):
+        self.name = name
+        self.age = age
+        self.ID = ID
+
+    def details(self):
+        print(f"Name:{self.name}.Age:{self.age}.id:{self.ID}")
+
+
+class Students(Person):
+    def _init_(self, name, age, Student_Id):
+        self.name = name
+        self.age = age
+        self.Student_Id = Student_Id
+        self.Enrolled_Course = []
+
+    def Enroll(self, Course):
+        self.Enrolled_Course.append(Course)
+
+    def details(self):
+        print(f"Student Name:{self.name}")
+        print(f"Student Age:{self.age}")
+        print(f"Student id:{self.Student_Id}")
+        print(f"Enrolled Course:{self.Enrolled_Course}")
+        # print(f"Enrolled Courses of {self.name} :")
+        # for course in self.Enrolled_Course:
+        #     print(f"{course}")
+
+
+class Teacher(Person):
+    def _init_(self, name, age, Teacher_Id):
+        self.name = name
+        self.age = age
+        self.Teacher_Id = Teacher_Id
+        self.Assign_Course = []
+
+    def Assign(self, Course):
+        self.Assign_Course.append(Course)
+
+    def details(self):
+        print(f"Teacher name:{self.name}.")
+        print(f"Teacher age:{self.age}.")
+        print(f"Teacher Id:{self.Teacher_Id}.")
+        print(f"Assigned Course:{self.Assign_Course}")
+        # print(f"Courses Assign for {self.name}:")
+        # for Course in self.Assign_Course:
+        #     print(f"{Course}")
+
+
+class Course:
+    def _init_(self, Course_name, Course_Code):
+        self.Course_name = Course_name
+        self.Course_Code = Course_Code
+        self.Students = []
+        self.Teacher = None
+        # self.Teachers = [] # if we want to assign multiple teachers to a course.
+
+    def add_student(self, student):
+        self.Students.append(student)
+
+    def add_teacher(self, teacher):
+        self.Teachers = teacher
+        # self.Teachers.append(teacher) # if we want to assign multiple teachers to a course.
+
+    def details(self):
+        print(f"Course Name:{self.Course_name}")
+        print(f"Course Code:{self.Course_Code}")
+        print("Enrolled Students:")
+        for student in self.Students:
+            print(f"{student}")
+        print(f"Assigned teachers:{self.Teachers}")
+        # if we want to assign multiple teachers to a course.
+        # print("Assigned Teachers:")
+        # for teacher in self.Teachers:
+        #     print(f"{teacher}")
+
+
+Student_1 = Students("Rohit", 18, 1)
+Student_1.Enroll("CSE-AI")
+# Student_1.Enroll("CSE-ML") # if we want to enroll multiple courses.
+Student_1.details()
+print()
+
+# Student_2 = Students("Virat", 19, 2)
+# Student_2.Enroll("CSE-AI")
+# Student_2.details()
+# print()
+
+Techer_1 = Teacher("Aakash", 25, 100)
+Techer_1.Assign("CSE-AI")
+# Techer_1.Assign("CSE-ML") # if we want to assign multiple courses to a teacher.
+Techer_1.details()
+print()
+
+# Techer_2 = Teacher("Vivek", 30, 101)
+# Techer_2.Assign("CSE-AI")
+# Techer_2.details()
+# print()
+
+Course_1 = Course("CSE-AI", 303)
+Course_1.add_student(Student_1.name)
+# Course_1.add_student(Student_2.name)
+Course_1.add_teacher(Techer_1.name)
+# Course_1.add_teacher(Techer_2.name) # if we want to assign multiple teachers to a course.
+Course_1.details()
+print()
+
+
+                               practical :3
+A program that reads a text file and counts the number of words in it.
+
+with open("a.txt",'r')as file:
+    Content = file.read()
+    Words = Content.split()
+    noWords = len(Words)
+    print(f"The number of words present in the file a.txt is {noWords}.")
+
+                            practical :4
+
+A program that reads a CSV file and calculates the average of the values in a specified column.
+
+import pandas as pd
+import statistics as st
+
+df = pd.read_csv("C:/Programming/Sem-4/Python/Practicals/Set-2/Book1.csv")
+avj = st.mean(df["Student_Marks"])
+print(f"Avrage of students marks from Book1.csv is {round(avj,2)}")
+
+
+                                   practical :5
+
+
+# A program that reads an Excel file and prints the data in a tabular format.
+
+import pandas as pd
+
+df = pd.read_excel("C:/Programming/Sem-4/Python/Practicals/Set-2/Book2.xlsx")
+print(df)
+
+
+                         
+                                                   SET-3 
+                                              PRACTICAL-1 
+AIM : A program that creates a simple web server and serves a static 
+HTML page. 
+ CODE: 
+ index.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial- 
+scale=1.0"> 
+<title>Static HTML Page</title> 
+</head> 
+<body> 
+<h1>Hello World!</h1> 
+</body> 
+</html> 
+ 
+ app.py 
+from flask import Flask, render_template 
+app = Flask( name ) 
+@app.route("/") 
+def home(): 
+return render_template("index.html") 
+if name == " main ": 
+app.run(debug=True) 
+
+ 
+                                       PRACTICAL- 2 
+AIM: A program that creates a web application that allows users to 
+register and login. 
+CODE: 
+ Index.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<title>Static HTML Page</title> 
+</head> 
+<style> 
+@import 
+url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"); 
+* { 
+margin: 0; 
+padding: 0; 
+box-sizing: border-box; 
+} 
+body { 
+height: 100vh; 
+width: 100%; 
+display: flex; 
+justify-content: center; 
+align-items: center; 
+flex-direction: column; 
+background: #ff5a5f; 
+} 
+h1 { 
+font-family: "Poppins", sans-serif; 
+color: #fff; 
+margin: 30px 50px; 
+font-size: 3rem; 
+} 
+input { 
+padding: 10px 20px; 
+border: 3px solid #fff; 
+border-radius: 10px; 
+background: rgb(16, 208, 16); 
+font-size: 1.5rem; 
+color: white; 
+font-family: "Poppins", sans-serif; 
+
+ 
+font-weight: 300; 
+transition: .3s; 
+&:hover{ 
+background: #fff; 
+color: #000; 
+cursor: pointer; 
+} 
+} 
+</style> 
+<body> 
+<h1>Hello, this is a static HTML page served by Flask!</h1> 
+<form action="{{ url_for('register') }}"> 
+<input type="submit" value="Register" /> 
+</form> 
+</body> 
+</html> 
+ login.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<title>User Login</title> 
+<style> 
+* { 
+margin: 0; 
+padding: 0; 
+box-sizing: border-box; 
+} 
+body { 
+height: 100vh; 
+width: 100%; 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+flex-direction: column; 
+background: rgb(9, 9, 121); 
+background: linear-gradient( 
+30deg, 
+rgba(9, 9, 121, 1) 0%, 
+rgba(2, 0, 36, 1) 29%, 
+rgba(0, 212, 255, 1) 100% 
+); 
+} 
+.container { 
+display: flex; 
+align-items: center; 
+
+ 
+justify-content: space-evenly; 
+flex-direction: column; 
+width: 600px; 
+border-radius: 20px; 
+height: 500px; 
+background: #ffffff5a; 
+backdrop-filter: blur(20px); 
+& h1 { 
+font-family: Arial, Helvetica, sans-serif; 
+color: #fff; 
+margin: 30px 0; 
+} 
+& li { 
+list-style: none; 
+} 
+& form { 
+& label { 
+color: white; 
+font-family: Arial, Helvetica, sans-serif; 
+font-size: 1.4rem; 
+margin: 10px 20px; 
+} 
+& .log_button { 
+color: #fff; 
+background: red; 
+border: none; 
+outline: none; 
+padding: 5px 10px; 
+border-radius: 10px; 
+font-size: 1.2rem; 
+transition: 0.3s; 
+transform: translateX(130px); 
+&:hover { 
+background: #fff; 
+color: #000; 
+cursor: pointer; 
+} 
+} 
+& .password{ 
+padding: 10px 20px; 
+border-radius: 20px; 
+outline: none; 
+border: none; 
+} 
+& .username{ 
+padding: 10px 20px; 
+border-radius: 20px; 
+outline: none; 
+border: none; 
+} 
+
+ & input { 
+
+margin: 10px 20px; 
+} 
+} 
+} 
+.error { 
+color: red; 
+} 
+.success { 
+color: green; 
+} 
+.default { 
+color: black; 
+} 
+</style> 
+</head> 
+<body> 
+<div class="container"> 
+<h1>User Login</h1> 
+{% with messages = get_flashed_messages() %} {% if messages %} 
+<ul> 
+{% for message in messages %} 
+<li 
+class="{% if 'error' in message %}error{% elif 'success' in message %}success{% else 
+%}default{% endif 
+%}" 
+> 
+{{ message }} 
+</li> 
+{% endfor %} 
+</ul> 
+{% endif %} {% endwith %} 
+<form method="post" action="{{ url_for('login') }}"> 
+<label for="username" class="username_label">Username:</label> 
+<input type="text" name="username" class="username" required /> 
+<br /> 
+<label for="password" class="password_label">Password:</label> 
+<input type="password" name="password" class="password" required /> 
+<br /> 
+<input type="submit" class="log_button" value="Log in" /> 
+</form> 
+<p> 
+Don't have an account? 
+<a href="{{ url_for('register') }}">Register here</a>. 
+</p> 
+</div> 
+</body> 
+</html> 
+
+ 
+ register.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<title>User Registration</title> 
+<style> 
+* { 
+margin: 0; 
+padding: 0; 
+box-sizing: border-box; 
+} 
+body { 
+height: 100vh; 
+width: 100%; 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+flex-direction: column; 
+background: rgb(9, 9, 121); 
+background: linear-gradient( 
+30deg, 
+rgba(9, 9, 121, 1) 0%, 
+rgba(2, 0, 36, 1) 29%, 
+rgba(0, 212, 255, 1) 100% 
+); 
+} 
+.container { 
+display: flex; 
+align-items: center; 
+justify-content: space-evenly; 
+flex-direction: column; 
+width: 600px; 
+border-radius: 20px; 
+height: 500px; 
+background: #ffffff5a; 
+backdrop-filter: blur(20px); 
+& h1 { 
+font-family: Arial, Helvetica, sans-serif; 
+color: #fff; 
+margin: 30px 0; 
+} 
+& li { 
+list-style: none; 
+} 
+& form { 
+& label { 
+color: white; 
+
+font-family: Arial, Helvetica, sans-serif; 
+font-size: 1.4rem; 
+margin: 10px 20px; 
+} 
+& .register_button { 
+color: #fff; 
+background: red; 
+border: none; 
+outline: none; 
+padding: 5px 10px; 
+border-radius: 10px; 
+font-size: 1.2rem; 
+transition: 0.3s; 
+transform: translateX(130px); 
+&:hover { 
+background: #fff; 
+color: #000; 
+cursor: pointer; 
+} 
+} 
+& .password { 
+padding: 10px 20px; 
+border-radius: 20px; 
+outline: none; 
+border: none; 
+} 
+& .username { 
+padding: 10px 20px; 
+border-radius: 20px; 
+outline: none; 
+border: none; 
+} 
+& input { 
+margin: 10px 20px; 
+} 
+} 
+} 
+.error { 
+color: red; 
+} 
+.success { 
+color: green; 
+} 
+.default { 
+color: black; 
+} 
+</style> 
+</head> 
+<body> 
+<div class="container"> 
+<h1>User Registration</h1> 
+
+ 
+{% with messages = get_flashed_messages() %} {% if messages %} 
+<ul> 
+{% for message in messages %} 
+<li 
+class="{% if 'error' in message %}error{% elif 'success' in message %}success{% else 
+%}default{% endif 
+%}" 
+> 
+{{ message }} 
+</li> 
+{% endfor %} 
+</ul> 
+{% endif %} {% endwith %} 
+<form method="post" action="{{ url_for('register') }}"> 
+<label for="username" class="username_label">Username:</label> 
+<input type="text" name="username" class="username" required /> 
+<br /> 
+<label for="password" class="password_label">Password:</label> 
+<input type="password" name="password" class="password" required /> 
+<br /> 
+<input type="submit" class="register_button" value="Register" /> 
+</form> 
+<p> 
+Already have an account? 
+<a href="{{ url_for('login') }}">Log in here</a>. 
+</p> 
+</div> 
+</body> 
+</html> 
+ app.py 
+from flask import Flask, render_template, request, redirect, url_for, session, flash 
+from flask_sqlalchemy import SQLAlchemy 
+from werkzeug.security import generate_password_hash, check_password_hash 
+import secrets 
+app = Flask( name   ) 
+app.secret_key = secrets.token_hex(16) 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db' 
+db = SQLAlchemy(app) 
+class User(db.Model): 
+id = db.Column(db.Integer, primary_key=True) 
+username = db.Column(db.String(50), unique=True, nullable=False) 
+password = db.Column(db.String(256), nullable=False) 
+with app.app_context(): 
+db.create_all() 
+@app.route("/") 
+def home(): 
+
+ 
+return render_template("index.html") 
+@app.route('/register', methods=['GET', 'POST']) 
+def register(): 
+if request.method == 'POST': 
+username = request.form['username'] 
+password = request.form['password'] 
+if User.query.filter_by(username=username).first(): 
+flash('Username already taken. Please choose another.', 'error') 
+else: 
+hashed_password = generate_password_hash(password, method='pbkdf2:sha256') 
+new_user = User(username=username, password=hashed_password) 
+db.session.add(new_user) 
+db.session.commit() 
+flash('Registration successful. You can now log in.', 'success') 
+return redirect(url_for('login')) 
+return render_template('register.html') 
+@app.route('/login', methods=['GET', 'POST']) 
+def login(): 
+if request.method == 'POST': 
+username = request.form['username'] 
+password = request.form['password'] 
+user = User.query.filter_by(username=username).first() 
+if user and check_password_hash(user.password, password): 
+session['username'] = username 
+flash('Login successful!', 'success') 
+return redirect(url_for('dashboard')) 
+else: 
+flash('Invalid username or password. Please try again.', 'error') 
+return render_template('login.html') 
+@app.route('/dashboard') 
+def dashboard(): 
+if 'username' in session: 
+return f'Welcome to the dashboard, {session["username"]}!' 
+else: 
+flash('Please log in to access the dashboard.', 'info') 
+return redirect(url_for('login')) 
+@app.route('/logout') 
+def logout(): 
+session.pop('username', None) 
+flash('You have been logged out.', 'info') 
+return redirect(url_for('login')) 
+if    name == ' main   ': 
+app.run(debug=True) 
+
+ 
+                                    PRACTICAL- 3 
+AIM: A program that creates a web application that allows users to upload 
+and download files. 
+CODE: 
+ Index.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>File Upload and Download</title> 
+</head> 
+<body> 
+<h1>File Upload and Download</h1> 
+<form action="/upload" method="post" enctype="multipart/form-data"> 
+<label for="file">Choose a file:</label> 
+<input type="file" name="file" id="file" required> 
+<br> 
+<input type="submit" value="Upload"> 
+</form> 
+<h2>Uploaded Files</h2> 
+{% for filename in filenames %} 
+<div> 
+<span>{{ filename }}</span> 
+<a href="{{ url_for('download_file', filename=filename) }}" download> 
+<button>Download</button> 
+</a> 
+</div> 
+{% endfor %} 
+</body> 
+</html> 
+ app.py 
+from flask import Flask, render_template, request, send_from_directory, 
+redirect, url_for 
+import os 
+app = Flask( name ) 
+UPLOAD_FOLDER = 'uploads' 
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER 
+
+18 
+os.makedirs(UPLOAD_FOLDER, exist_ok=True) 
+@app.route('/') 
+def index(): 
+filenames = os.listdir(app.config['UPLOAD_FOLDER']) 
+return render_template('index.html', filenames=filenames) 
+@app.route('/upload', methods=['POST']) 
+def upload_file(): 
+if 'file' not in request.files: 
+return "No file part" 
+file = request.files['file'] 
+if file.filename == '': 
+return "No selected file" 
+file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename)) 
+return redirect(url_for('index')) 
+@app.route('/download/<filename>') 
+def download_file(filename): 
+return send_from_directory(app.config['UPLOAD_FOLDER'], filename) 
+if    name == ' main ': 
+app.run(debug=True) 
+
+                                                 PRACTICAL- 4 
+
+AIM: A program that creates a web application that displays data from a 
+database in a tabular format. 
+CODE: 
+ index.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Data Display</title> 
+<link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+</head> 
+<body> 
+<div class="container mt-5"> 
+<h1>Data Display</h1> 
+<!-- Render the HTML table --> 
+{{ table_html | safe }} 
+</div> 
+</body> 
+</html> 
+ app.py 
+from flask import Flask, render_template 
+from flask_sqlalchemy import SQLAlchemy 
+import pandas as pd 
+app = Flask(    name    ) 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///example.db' 
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
+# Create a SQLAlchemy instance 
+db = SQLAlchemy(app) 
+
+# Define a model for the data 
+class Person(db.Model): 
+id = db.Column(db.Integer, primary_key=True) 
+name = db.Column(db.String(50), nullable=False) 
+age = db.Column(db.Integer, nullable=False) 
+# Sample data for demonstration 
+sample_data = [{'name': 'John', 'age': 25}, 
+{'name': 'Alice', 'age': 30}, 
+{'name': 'Bob', 'age': 22}] 
+# Populate the database with sample data 
+with app.app_context(): 
+db.create_all() 
+for entry in sample_data: 
+person = Person(name=entry['name'], age=entry['age']) 
+db.session.add(person) 
+db.session.commit() 
+# Define a route to display data in tabular format 
+@app.route('/') 
+def display_data(): 
+# Query data from the database 
+data = Person.query.all() 
+# Convert the data to a Pandas DataFrame 
+df = pd.DataFrame([(person.name, person.age) for person in data], columns=['name', 'age']) 
+# Convert the DataFrame to HTML for rendering in the template 
+table_html = df.to_html(classes='table table-striped', index=False) 
+return render_template('index.html', table_html=table_html) 
+if    name == ' main ': 
+app.run(debug=True) 
+
+                                         PRACTICAL- 5 
+AIM: A program that creates a web application that accepts user input and 
+sends it to a server-side script for processing. 
+CODE: 
+ Index.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<title>User Input</title> 
+</head> 
+<style> 
+* { 
+margin: 0; 
+padding: 0; 
+box-sizing: border-box; 
+} 
+body { 
+height: 100vh; 
+width: 100%; 
+background: #a2d2ff; 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+flex-direction: column; 
+} 
+.container { 
+display: flex; 
+align-items: center; 
+justify-content: space-evenly; 
+flex-direction: column; 
+width: 500px; 
+height: 600px; 
+border-radius: 20px; 
+background: #ffffff5a; 
+backdrop-filter: blur(20px); 
+& h1{ 
+font-family: Arial, Helvetica, sans-serif; 
+color: #3a86ff; 
+font-size: 2rem; 
+} 
+& label{ 
+color: #3a86ff; 
+font-family: Arial, Helvetica, sans-serif; 
+font-size: 1.2rem; 
+padding: 10px; 
+margin: 10px 20px; 
+} 
+& .enter{ 
+padding: 10px 20px; 
+border: none; 
+outline: none; 
+border-radius: 20px; 
+} 
+& .submit{ 
+padding: 10px 20px; 
+color: #fff; 
+background: #2a9d8f; 
+outline: none; 
+border: none; 
+border-radius: 10px; 
+transition: .3s; 
+transform: translateX(150px); 
+margin: 30px; 
+&:hover{ 
+color: #000; 
+cursor: pointer; 
+background: #fff; 
+} 
+} 
+& h2{ 
+font-family: Arial, Helvetica, sans-serif; 
+color: #3a86ff; 
+font-size: 2rem; 
+} 
+} 
+</style> 
+<body> 
+<div class="container"> 
+<h1>User Input Form</h1> 
+<form method="post" action="/"> 
+<label for="user_input">Enter something:</label> 
+<input type="text" class="enter" name="user_input" id="user_input" required /> 
+
+<br /> 
+<input class="submit" type="submit" value="Submit" /> 
+</form> 
+{% if result %} 
+<div> 
+<h2>Result:</h2> 
+<p>{{ result }}</p> 
+</div> 
+{% endif %} 
+</div> 
+</body> 
+</html> 
+ app.py 
+from flask import Flask, render_template, request 
+app = Flask(  name ) 
+# Define a route for the main page 
+@app.route('/', methods=['GET', 'POST']) 
+def index(): 
+result = None 
+if request.method == 'POST': 
+# Get user input from the form 
+user_input = request.form.get('user_input') 
+result = f"You entered: {user_input}" 
+return render_template('index.html', result=result) 
+if    name == ' main ': 
+app.run(debug=True) 
+
+                                                 SET-4 
+                                               PRACTICAL-1 
+ AIM : A program that creates a web application that uses a template engine 
+to generate dynamic HTML pages. 
+ CODE: 
+ index.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Flask Template Example</title> 
+</head> 
+<body> 
+<h1>{{ message }}</h1> 
+</body> 
+</html> 
+ app.py 
+from flask import Flask, render_template 
+app = Flask( name ) 
+
+@app.route("/")def home(): 
+return render_template('index.html',message='Hello, World!') 
+if name == " main ": 
+app.run(debug=True) 
+
+                                                   PRACTICAL- 2 
+
+AIM: A program that creates a web application that supports AJAX 
+requests and updates the page without reloading 
+CODE: 
+ index_ajax.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title> Flask AJAX Example </title> 
+<script> 
+async function updateMessage() { 
+const messageInput = document.getElementById('message'); 
+const message = messageInput.value; 
+const response = await fetch('/update', { 
+method: 'POST', 
+headers: { 
+'Content-Type': 'application/json', 
+}, 
+body: JSON.stringify({ 'message': message }), 
+}); 
+const responseData = await response.json(); 
+document.getElementById('output').innerHTML = 
+responseData.updatedMessage; 
+} 
+</script> 
+</head> 
+<body> 
+
+<h1>Flask AJAX Example</h1> 
+<input type="text" id="message" placeholder="Enter message"> 
+<button onclick="updateMessage()">Update</button> 
+<div id="output"></div> 
+</body> 
+</html> 
+ app.py 
+from flask import Flask, render_template 
+app = Flask( name ) 
+@app.route("/")def home(): 
+return render_template('index.html',message='Hello, World!') 
+if name == " main ": 
+app.run(debug=True) 
+
+                                    PRACTICAL- 3 
+AIM: A program that creates a web application that uses Django's built-in 
+debugging features to troubleshoot errors and exceptions. 
+CODE: 
+ manage.py 
+import os 
+import sys 
+if name == " main ": 
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings") 
+try: 
+from django.core.management import execute_from_command_line 
+except ImportError as exc: 
+raise ImportError( 
+"Couldn't import Django. Are you sure it's installed and " 
+"available on your PYTHONPATH environment variable? Did 
+you " 
+"forget to activate a virtual environment?" 
+) from exc 
+execute from command_line(sys.argv) 
+ settings.py 
+import os 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath( file ))) 
+SECRET_KEY = 'your-secret-key' 
+DEBUG = True 
+ALLOWED_HOSTS = [] 
+
+INSTALLED_APPS = [ 
+'django.contrib.staticfiles', 
+] 
+MIDDLEWARE = [ 
+'django.middleware.security.SecurityMiddleware', 
+] 
+ROOT_URLCONF = 'mysite.urls' 
+TEMPLATES = [ 
+{ 
+'BACKEND': 'django.template.backends.django.DjangoTemplates', 
+'DIRS': [os.path.join(BASE_DIR, 'templates')], 
+'APP_DIRS': True, 
+'OPTIONS': { 
+'context_processors': [ 
+'django.template.context_processors.debug', 
+'django.template.context_processors.request', 
+'django.contrib.auth.context_processors.auth', 
+'django.contrib.messages.context_processors.messages', 
+], 
+}, 
+}, 
+] 
+WSGI_APPLICATION = 'mysite.wsgi.application' 
+DATABASES = { 
+'default': { 
+'ENGINE': 'django.db.backends.sqlite3', 
+'NAME': os.path.join(BASE_DIR, 'db.sqlite3'), 
+} 
+} 
+
+STATIC_URL = '/static/' 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' 
+ urls.py 
+from django.urls import path 
+from django.http import HttpResponseServerError 
+def trigger_error(request): 
+return HttpResponseServerError("Intentional Error for Debugging") 
+urlpatterns = [ 
+path('error/', trigger_error), 
+] 
+
+
+                                        PRACTICAL- 4 
+AIM: A program that creates a web application that implements user 
+authentication and Authorization. 
+CODE: 
+ Index.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<title>Static HTML Page</title> 
+</head> 
+<style> 
+@import 
+url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"); 
+* { 
+margin: 0; 
+padding: 0; 
+box-sizing: border-box; 
+} 
+body { 
+height: 100vh; 
+width: 100%; 
+display: flex; 
+justify-content: center; 
+align-items: center; 
+flex-direction: column; 
+background: #ff5a5f; 
+} 
+h1 { 
+font-family: "Poppins", sans-serif; 
+color: #fff; 
+margin: 30px 50px; 
+font-size: 3rem; 
+} 
+input { 
+padding: 10px 20px; 
+border: 3px solid #fff; 
+border-radius: 10px; 
+background: rgb(16, 208, 16); 
+font-size: 1.5rem; 
+color: white; 
+
+font-family: "Poppins", sans-serif; 
+font-weight: 300; 
+transition: .3s; 
+&:hover{ 
+background: #fff; 
+color: #000; 
+cursor: pointer; 
+} 
+} 
+</style> 
+<body> 
+<h1>Hello, this is a static HTML page served by Flask!</h1> 
+<form action="{{ url_for('register') }}"> 
+<input type="submit" value="Register" /> 
+</form> 
+</body> 
+</html> 
+ login.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<title>User Login</title> 
+<style> 
+* { 
+margin: 0; 
+padding: 0; 
+box-sizing: border-box; 
+} 
+body { 
+height: 100vh; 
+width: 100%; 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+flex-direction: column; 
+background: rgb(9, 9, 121); 
+background: linear-gradient( 
+30deg, 
+rgba(9, 9, 121, 1) 0%, 
+rgba(2, 0, 36, 1) 29%, 
+rgba(0, 212, 255, 1) 100% 
+); 
+} 
+
+.container { 
+display: flex; 
+align-items: center; 
+justify-content: space-evenly; 
+flex-direction: column; 
+width: 600px; 
+border-radius: 20px; 
+height: 500px; 
+background: #ffffff5a; 
+backdrop-filter: blur(20px); 
+& h1 { 
+font-family: Arial, Helvetica, sans-serif; 
+color: #fff; 
+margin: 30px 0; 
+} 
+& li { 
+list-style: none; 
+} 
+& form { 
+& label { 
+color: white; 
+font-family: Arial, Helvetica, sans-serif; 
+font-size: 1.4rem; 
+margin: 10px 20px; 
+} 
+& .log_button { 
+color: #fff; 
+background: red; 
+border: none; 
+outline: none; 
+padding: 5px 10px; 
+border-radius: 10px; 
+font-size: 1.2rem; 
+transition: 0.3s; 
+transform: translateX(130px); 
+&:hover { 
+background: #fff; 
+color: #000; 
+cursor: pointer; 
+} 
+} 
+& .password{ 
+padding: 10px 20px; 
+border-radius: 20px; 
+outline: none; 
+border: none; 
+} 
+& .username{ 
+.
+ padding: 10px 20px; 
+
+border-radius: 20px; 
+outline: none; 
+border: none; 
+} 
+& input { 
+margin: 10px 20px; 
+} 
+} 
+} 
+.error { 
+color: red; 
+} 
+.success { 
+color: green; 
+} 
+.default { 
+color: black; 
+} 
+</style> 
+</head> 
+<body> 
+<div class="container"> 
+<h1>User Login</h1> 
+{% with messages = get_flashed_messages() %} {% if messages %} 
+<ul> 
+{% for message in messages %} 
+<li 
+class="{% if 'error' in message %}error{% elif 'success' in message %}success{% else 
+%}default{% endif 
+%}" 
+> 
+{{ message }} 
+</li> 
+{% endfor %} 
+</ul> 
+{% endif %} {% endwith %} 
+<form method="post" action="{{ url_for('login') }}"> 
+<label for="username" class="username_label">Username:</label> 
+<input type="text" name="username" class="username" required /> 
+<br /> 
+<label for="password" class="password_label">Password:</label> 
+<input type="password" name="password" class="password" required /> 
+<br /> 
+<input type="submit" class="log_button" value="Log in" /> 
+</form> 
+<p> 
+Don't have an account? 
+<a href="{{ url_for('register') }}">Register here</a>. 
+</p> 
+
+</div> 
+</body> 
+</html> 
+ register.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<title>User Registration</title> 
+<style> 
+* { 
+margin: 0; 
+padding: 0; 
+box-sizing: border-box; 
+} 
+body { 
+height: 100vh; 
+width: 100%; 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+flex-direction: column; 
+background: rgb(9, 9, 121); 
+background: linear-gradient( 
+30deg, 
+rgba(9, 9, 121, 1) 0%, 
+rgba(2, 0, 36, 1) 29%, 
+rgba(0, 212, 255, 1) 100% 
+); 
+} 
+.container { 
+display: flex; 
+align-items: center; 
+justify-content: space-evenly; 
+flex-direction: column; 
+width: 600px; 
+border-radius: 20px; 
+height: 500px; 
+background: #ffffff5a; 
+backdrop-filter: blur(20px); 
+& h1 { 
+font-family: Arial, Helvetica, sans-serif; 
+color: #fff; 
+
+margin: 30px 0; 
+} 
+& li { 
+list-style: none; 
+} 
+& form { 
+& label { 
+color: white; 
+font-family: Arial, Helvetica, sans-serif; 
+font-size: 1.4rem; 
+margin: 10px 20px; 
+} 
+& .register_button { 
+color: #fff; 
+background: red; 
+border: none; 
+outline: none; 
+padding: 5px 10px; 
+border-radius: 10px; 
+font-size: 1.2rem; 
+transition: 0.3s; 
+transform: translateX(130px); 
+&:hover { 
+background: #fff; 
+color: #000; 
+cursor: pointer; 
+} 
+} 
+& .password { 
+padding: 10px 20px; 
+border-radius: 20px; 
+outline: none; 
+border: none; 
+} 
+& .username { 
+padding: 10px 20px; 
+border-radius: 20px; 
+outline: none; 
+border: none; 
+} 
+& input { 
+margin: 10px 20px; 
+} 
+} 
+} 
+.error { 
+color: red; 
+} 
+.
+ .success { 
+
+color: green; 
+} 
+.default { 
+color: black; 
+} 
+</style> 
+</head> 
+<body> 
+<div class="container"> 
+<h1>User Registration</h1> 
+{% with messages = get_flashed_messages() %} {% if messages %} 
+<ul> 
+{% for message in messages %} 
+<li 
+class="{% if 'error' in message %}error{% elif 'success' in message %}success{% else 
+%}default{% endif 
+%}" 
+> 
+{{ message }} 
+</li> 
+{% endfor %} 
+</ul> 
+{% endif %} {% endwith %} 
+<form method="post" action="{{ url_for('register') }}"> 
+<label for="username" class="username_label">Username:</label> 
+<input type="text" name="username" class="username" required /> 
+<br /> 
+<label for="password" class="password_label">Password:</label> 
+<input type="password" name="password" class="password" required /> 
+<br /> 
+<input type="submit" class="register_button" value="Register" /> 
+</form> 
+<p> 
+Already have an account? 
+<a href="{{ url_for('login') }}">Log in here</a>. 
+</p> 
+</div> 
+</body> 
+</html> 
+ app.py 
+from flask import Flask, render_template, request, redirect, url_for, session, flash 
+from flask_sqlalchemy import SQLAlchemy 
+from werkzeug.security import generate_password_hash, check_password_hash 
+import secrets 
+app = Flask( name   ) 
+app.secret_key = secrets.token_hex(16) 
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db' 
+db = SQLAlchemy(app) 
+class User(db.Model): 
+id = db.Column(db.Integer, primary_key=True) 
+username = db.Column(db.String(50), unique=True, nullable=False) 
+password = db.Column(db.String(256), nullable=False) 
+with app.app_context(): 
+db.create_all() 
+@app.route("/") 
+def home(): 
+return render_template("index.html") 
+@app.route('/register', methods=['GET', 'POST']) 
+def register(): 
+if request.method == 'POST': 
+username = request.form['username'] 
+password = request.form['password'] 
+if User.query.filter_by(username=username).first(): 
+flash('Username already taken. Please choose another.', 'error') 
+else: 
+hashed_password = generate_password_hash(password, method='pbkdf2:sha256') 
+new_user = User(username=username, password=hashed_password) 
+db.session.add(new_user) 
+db.session.commit() 
+flash('Registration successful. You can now log in.', 'success') 
+return redirect(url_for('login')) 
+return render_template('register.html') 
+@app.route('/login', methods=['GET', 'POST']) 
+def login(): 
+if request.method == 'POST': 
+username = request.form['username'] 
+password = request.form['password'] 
+user = User.query.filter_by(username=username).first() 
+if user and check_password_hash(user.password, password): 
+session['username'] = username 
+flash('Login successful!', 'success') 
+return redirect(url_for('dashboard')) 
+else: 
+flash('Invalid username or password. Please try again.', 'error') 
+return render_template('login.html') 
+@app.route('/dashboard') 
+def dashboard(): 
+
+if 'username' in session: 
+return f'Welcome to the dashboard, {session["username"]}!' 
+else: 
+flash('Please log in to access the dashboard.', 'info') 
+return redirect(url_for('login')) 
+@app.route('/logout') 
+def logout(): 
+session.pop('username', None) 
+flash('You have been logged out.', 'info') 
+return redirect(url_for('login')) 
+if    name == ' main ': 
+app.run(debug=True) 
+
+                                              PRACTICAL- 5 
+AIM: A program that creates a web application that integrates 
+with third-party APIs to provide additional functionality. 
+CODE: 
+ Index_api.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, 
+initial-scale=1.0"> 
+<title>Weather App</title> 
+</head> 
+<body> 
+<h1>Weather App</h1> 
+<form action="/weather" method="post"> 
+<label for="city">Enter city:</label> 
+<input type="text" id="city" name="city" required> 
+<button type="submit">Get Weather</button> 
+</form> 
+</body> 
+</html> 
+
+ result.html 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, 
+initial-scale=1.0"> 
+<title>Weather Result</title> 
+</head> 
+<body> 
+<h2>Weather Result</h2> 
+<p>{{ result }}</p> 
+<a href="/">Go back</a> 
+</body> 
+</html> 
+ app.py 
+from flask import Flask, render_template, request 
+import requests 
+app = Flask( name ) 
+def get_weather(api_key, city): 
+url = 
+f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_k 
+ey}&units=metric' 
+response = requests.get(url) 
+data = response.json() 
+if response.status_code == 200: 
+
+weather_description = data['weather'][0]['description'] 
+temperature = data['main']['temp'] 
+return f'The weather in {city} is {weather_description} with a 
+temperature of {temperature}°C.' 
+else: 
+return 'Failed to fetch weather information.' 
+@app.route('/') 
+def home(): 
+return render_template('index_api.html') 
+@app.route('/weather', methods=['POST']) 
+def weather(): 
+api_key = 'your-openweathermap-api-key' # Replace with your API 
+key 
+city = request.form['city'] 
+result = get_weather(api_key, city) 
+return render_template(s.html', result=result) 
+if name == ' main ': 
+app.run(debug=True) 
+
+                                                   SET-5 
+                                               PRACTICAL-1 
+AIM : A program that creates a simple RESTful API that returns a list of 
+users in JSON format 
+ CODE: 
+from flask import Flask, jsonify 
+app = Flask( name ) 
+users = [ 
+{'id': 1, 'name': 'Arshad'}, 
+{'id': 2, 'name': 'Vishnu'}, 
+{'id': 3, 'name': 'Reddy'} 
+] 
+@app.route('/users', methods=['GET']) 
+def get_users(): 
+return jsonify(users) 
+if name == ' main ': 
+app.run(debug=True) 
+
+                                              PRACTICAL- 2 
+AIM: A program that creates a RESTful API that allows users to create, 
+read, update, and delete resource 
+CODE: 
+ app.py 
+from flask import Flask, jsonify, request 
+app = Flask( name ) 
+books = [ 
+{'id': 1, 'title': 'Book 1', 'author': 'Author 1'}, 
+{'id': 2, 'title': 'Book 2', 'author': 'Author 2'}, 
+{'id': 3, 'title': 'Book 3', 'author': 'Author 3'} 
+] 
+@app.route('/books', methods=['GET']) 
+def get_books(): 
+return jsonify(books) 
+@app.route('/books/<int:book_id>', methods=['GET']) 
+def get_book(book_id): 
+book = next((b for b in books if b['id'] == book_id), None) 
+if book: 
+return jsonify(book) 
+else: 
+return jsonify({'error': 'Book not found'}), 404 
+@app.route('/books', methods=['POST']) 
+def create_book(): 
+data = request.get_json() 
+new_book = { 
+
+'id': len(books) + 1, 
+'title': data['title'], 
+'author': data['author'] 
+} 
+books.append(new_book) 
+return jsonify(new_book), 201 
+@app.route('/books/<int:book_id>', methods=['PUT']) 
+def update_book(book_id): 
+book = next((b for b in books if b['id'] == book_id), None) 
+if book: 
+data = request.get_json() 
+book['title'] = data['title'] 
+book['author'] = data['author'] 
+return jsonify(book) 
+else: 
+return jsonify({'error': 'Book not found'}), 404 
+@app.route('/books/<int:book_id>', methods=['DELETE']) 
+def delete_book(book_id): 
+global books 
+books = [b for b in books if b['id'] != book_id] 
+return jsonify({'result': True}) 
+if name == ' main ': 
+app.run(debug=True)
+
+                                             PRACTICAL- 3 
+AIM: A program that creates a RESTful API that authenticates users using a 
+JSON Web Token 
+CODE: 
+ app.py 
+from flask import Flask, jsonify, request 
+from flask_jwt_extended import JWTManager, jwt_required, 
+create_access_token 
+app = Flask( name ) 
+# Set up Flask-JWT-Extended 
+app.config['JWT_SECRET_KEY'] = 'your-secret-key' # Replace with your 
+secret key 
+jwt = JWTManager(app) 
+# Dummy user data (replace with a proper user database in a real 
+application) 
+users = { 
+'user1': {'password': 'password1'}, 
+'user2': {'password': 'password2'} 
+} 
+# Route to generate a JWT token upon login 
+@app.route('/login', methods=['POST']) 
+def login(): 
+data = request.get_json() 
+username = data.get('username') 
+password = data.get('password') 
+
+if username in users and users[username]['password'] == password: 
+access_token = create_access_token(identity=username) 
+return jsonify(access_token=access_token) 
+else: 
+return jsonify({'error': 'Invalid username or password'}), 401 
+# Protected route that requires a valid JWT token for access 
+@app.route('/protected', methods=['GET']) 
+@jwt_required() 
+def protected(): 
+current_user = jwt.get_jwt_identity() 
+return jsonify(logged_in_as=current_user), 200 
+if name == ' main ': 
+app.run(debug=True) 
+
+                                          PRACTICAL- 4 
+AIM: A program that creates a RESTful API that paginates the results of a 
+query to improve performance 
+CODE: 
+ app.py 
+from flask import Flask, jsonify, request 
+app = Flask( name ) 
+# Dummy data (replace with your actual data source) 
+items = [f'Item {i}' for i in range(1, 101)] 
+# Route that supports pagination 
+@app.route('/items', methods=['GET']) 
+def get_items(): 
+page = int(request.args.get('page', 1)) 
+per_page = int(request.args.get('per_page', 10)) 
+start_index = (page - 1) * per_page 
+end_index = start_index + per_page 
+paginated_items = items[start_index:end_index] 
+return jsonify({'items': paginated_items, 'page': page, 
+'per_page': per_page, 'total_items': len(items)}) 
+if name == ' main ': 
+app.run(debug=True) 
+
+                                              PRACTICAL- 5 
+AIM: A program that creates a RESTful API that supports data 
+validation and error handling. 
+CODE: 
+ app.py 
+from flask_restful import Resource, Api, reqparse 
+app = Flask( name ) 
+api = Api(app) 
+# Dummy data (replace with your actual data source) 
+items = {'1': {'name': 'Item 1', 'price': 10.99}, 
+'2': {'name': 'Item 2', 'price': 19.99}} 
+# Request parser for input validation 
+parser = reqparse.RequestParser() 
+parser.add_argument('name', type=str, required=True, help='Name cannot 
+be blank') 
+parser.add_argument('price', type=float, required=True, help='Price 
+cannot be blank') 
+class ItemResource(Resource): 
+def get(self, item_id): 
+item = items.get(item_id) 
+if item: 
+return item 
+else: 
+return {'error': 'Item not found'}, 404 
+def put(self, item_id): 
+args = parser.parse_args() 
+
+items[item_id] = {'name': args['name'], 'price': 
+args['price']} 
+return items[item_id], 201 
+def delete(self, item_id): 
+if item_id in items: 
+del items[item_id] 
+return {'result': True} 
+else: 
+return {'error': 'Item not found'}, 404 
+api.add_resource(ItemResource, '/items/<item_id>') 
+if name == ' main ': 
+app.run(debug=True) 
