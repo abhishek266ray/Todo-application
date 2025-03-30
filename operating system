@@ -1,0 +1,409 @@
+                                              practical 3
+Aim: Write a shell script to print given number sum of all digit.
+#!/bin/bash
+
+# Prompt the user to enter a number
+echo "Enter a number:"
+read number
+
+# Initialize sum to zero
+sum=0
+
+# Loop through each digit in the number
+while [ $number -ne 0 ]; do
+    # Get the last digit
+    digit=$((number % 10))
+    
+    # Add the digit to the sum
+    sum=$((sum + digit))
+    
+    # Remove the last digit from the number
+    number=$((number / 10))
+done
+
+# Print the sum of digits
+echo "The sum of all digits is: $sum"
+
+                             practical 4
+Aim Write a shell script to validate the entered date. leg date
+#!/bin/bash
+
+# Prompt the user to enter a date in YYYY-MM-DD format
+echo "Enter a date (YYYY-MM-DD):"
+read date
+
+# Use regex to validate the date format
+if [[ $date =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+    # Extract year, month, and day from the date
+    year=$(echo $date | cut -d'-' -f1)
+    month=$(echo $date | cut -d'-' -f2)
+    day=$(echo $date | cut -d'-' -f3)
+
+    # Check if the entered date is valid
+    if date -d "$date" >/dev/null 2>&1; then
+        echo "The entered date is valid."
+    else
+        echo "Invalid date. Please check the day, month, or year."
+    fi
+else
+    echo "Invalid format. Please use YYYY-MM-DD format."
+fi
+
+                                      practical :5
+Aim: printing the patterns using for loop.
+#!/bin/bash
+
+# Number of rows for the pattern
+rows=5
+
+# Loop to print the pattern
+for ((i=1; i<=rows; i++)); do
+    for ((j=1; j<=i; j++)); do
+        echo -n "*"
+    done
+    echo ""
+done
+
+                                      practical:6
+Aim: write a shell script to say good morning/afternoon/ evening as you log in to system.
+#!/bin/bash
+
+# Get the current hour (24-hour format)
+hour=$(date +%H)
+
+# Determine the greeting based on the hour
+if [ $hour -ge 5 ] && [ $hour -lt 12 ]; then
+    greeting="Good Morning!"
+elif [ $hour -ge 12 ] && [ $hour -lt 17 ]; then
+    greeting="Good Afternoon!"
+elif [ $hour -ge 17 ] && [ $hour -lt 21 ]; then
+    greeting="Good Evening!"
+else
+    greeting="Hello! Hope you're having a good time!"
+fi
+
+# Print the greeting
+echo $greeting
+
+                                         practical :7
+Aim: shell script to determine wheather given file exist or not ?
+#!/bin/bash
+
+# Prompt the user to enter the file name
+echo "Enter the file name (with full path if not in the current directory):"
+read file
+
+# Check if the file exists
+if [ -e "$file" ]; then
+    echo "The file '$file' exists."
+else
+    echo "The file '$file' does not exist."
+fi
+
+                                       practical:8
+Aim:write a shell script to check entered string is palindrome or not.
+#!/bin/bash
+
+# Prompt the user to enter a string
+echo "Enter a string:"
+read string
+
+# Reverse the string
+reversed=$(echo "$string" | rev)
+
+# Check if the string is equal to its reverse
+if [ "$string" == "$reversed" ]; then
+    echo "The string '$string' is a palindrome."
+else
+    echo "The string '$string' is not a palindrome."
+fi
+
+                                   practical :9
+Aim: write a c program to create a child process.
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+
+int main() {
+    pid_t pid;
+
+    // Create a child process using fork()
+    pid = fork();
+
+    if (pid < 0) {
+        // Error occurred
+        perror("Fork failed");
+        return 1;
+    } else if (pid == 0) {
+        // Code executed by the child process
+        printf("Hello, I am the child process! My PID is %d\n", getpid());
+        printf("My parent's PID is %d\n", getppid());
+    } else {
+        // Code executed by the parent process
+        printf("Hello, I am the parent process! My PID is %d\n", getpid());
+        printf("My child's PID is %d\n", pid);
+    }
+
+    return 0;
+}
+
+                                      practical:10
+Aim: Write a c program for process creating using c.
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+
+int main() {
+    pid_t pid;
+
+    // Create a new process
+    pid = fork();
+
+    if (pid < 0) {
+        // Error handling
+        perror("Fork failed");
+        return 1;
+    } else if (pid == 0) {
+        // Code executed by the child process
+        printf("This is the child process. PID: %d, Parent PID: %d\n", getpid(), getppid());
+    } else {
+        // Code executed by the parent process
+        printf("This is the parent process. PID: %d, Child PID: %d\n", getpid(), pid);
+    }
+
+    return 0;
+}
+
+                                      practical:11
+Aim: finding the biggest number for given three number supplied os command line argument.
+#!/bin/bash
+
+# Check if exactly three arguments are provided
+if [ "$#" -ne 3 ]; then
+    echo "Usage: $0 num1 num2 num3"
+    exit 1
+fi
+
+# Read the numbers from command-line arguments
+num1=$1
+num2=$2
+num3=$3
+
+# Find the largest number
+if [ "$num1" -ge "$num2" ] && [ "$num1" -ge "$num3" ]; then
+    echo "The largest number is: $num1"
+elif [ "$num2" -ge "$num1" ] && [ "$num2" -ge "$num3" ]; then
+    echo "The largest number is: $num2"
+else
+    echo "The largest number is: $num3"
+fi
+
+                                 practical:12
+Aim: Implementation of FCFS and round robin Algorithm.
+#include <stdio.h>
+#include <stdlib.h>
+
+void fcfs(int n, int bt[]) {
+    int wt[20], tat[20];
+    float avg_wt = 0, avg_tat = 0;
+
+    wt[0] = 0; // Waiting time for the first process is 0
+
+    // Calculate waiting time
+    for (int i = 1; i < n; i++) {
+        wt[i] = wt[i - 1] + bt[i - 1];
+    }
+
+    // Calculate turnaround time
+    for (int i = 0; i < n; i++) {
+        tat[i] = wt[i] + bt[i];
+        avg_wt += wt[i];
+        avg_tat += tat[i];
+    }
+
+    avg_wt /= n;
+    avg_tat /= n;
+
+    printf("\nFCFS Scheduling:\n");
+    printf("Process\tBurst Time\tWaiting Time\tTurnaround Time\n");
+    for (int i = 0; i < n; i++) {
+        printf("P%d\t%d\t\t%d\t\t%d\n", i + 1, bt[i], wt[i], tat[i]);
+    }
+    printf("\nAverage Waiting Time: %.2f\n", avg_wt);
+    printf("Average Turnaround Time: %.2f\n", avg_tat);
+}
+
+void round_robin(int n, int bt[], int tq) {
+    int rem_bt[20], wt[20] = {0}, tat[20];
+    int t = 0, done;
+    float avg_wt = 0, avg_tat = 0;
+
+    for (int i = 0; i < n; i++) {
+        rem_bt[i] = bt[i]; // Initialize remaining burst times
+    }
+
+    while (1) {
+        done = 1;
+
+        for (int i = 0; i < n; i++) {
+            if (rem_bt[i] > 0) {
+                done = 0; // Process still has remaining burst time
+
+                if (rem_bt[i] > tq) {
+                    t += tq;
+                    rem_bt[i] -= tq;
+                } else {
+                    t += rem_bt[i];
+                    wt[i] = t - bt[i];
+                    rem_bt[i] = 0;
+                }
+            }
+        }
+
+        if (done) {
+            break;
+        }
+    }
+
+    // Calculate turnaround time
+    for (int i = 0; i < n; i++) {
+        tat[i] = bt[i] + wt[i];
+        avg_wt += wt[i];
+        avg_tat += tat[i];
+    }
+
+    avg_wt /= n;
+    avg_tat /= n;
+
+    printf("\nRound Robin Scheduling:\n");
+    printf("Process\tBurst Time\tWaiting Time\tTurnaround Time\n");
+    for (int i = 0; i < n; i++) {
+        printf("P%d\t%d\t\t%d\t\t%d\n", i + 1, bt[i], wt[i], tat[i]);
+    }
+    printf("\nAverage Waiting Time: %.2f\n", avg_wt);
+    printf("Average Turnaround Time: %.2f\n", avg_tat);
+}
+
+int main() {
+    int choice, n, tq, bt[20];
+
+    printf("Enter the number of processes: ");
+    scanf("%d", &n);
+
+    printf("Enter burst times for each process:\n");
+    for (int i = 0; i < n; i++) {
+        printf("Process %d: ", i + 1);
+        scanf("%d", &bt[i]);
+    }
+
+    printf("\nChoose Scheduling Algorithm:\n");
+    printf("1. FCFS\n");
+    printf("2. Round Robin\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            fcfs(n, bt);
+            break;
+        case 2:
+            printf("Enter time quantum: ");
+            scanf("%d", &tq);
+            round_robin(n, bt, tq);
+            break;
+        default:
+            printf("Invalid choice.\n");
+    }
+
+    return 0;
+}
+
+                                      practical:13
+Aim:Implementation of Bankers Algorithm
+
+#include <stdio.h>
+
+int main() {
+    int n, m, i, j, k;
+    printf("Enter the number of processes: ");
+    scanf("%d", &n);
+    printf("Enter the number of resource types: ");
+    scanf("%d", &m);
+
+    int alloc[n][m], max[n][m], avail[m];
+    int need[n][m], finish[n], safeSequence[n];
+    int count = 0;
+
+    // Input allocation matrix
+    printf("\nEnter the allocation matrix:\n");
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
+            scanf("%d", &alloc[i][j]);
+        }
+    }
+
+    // Input max matrix
+    printf("\nEnter the max matrix:\n");
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
+            scanf("%d", &max[i][j]);
+        }
+    }
+
+    // Input available resources
+    printf("\nEnter the available resources:\n");
+    for (i = 0; i < m; i++) {
+        scanf("%d", &avail[i]);
+    }
+
+    // Calculate the need matrix
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
+            need[i][j] = max[i][j] - alloc[i][j];
+        }
+    }
+
+    // Initialize finish array to false (0)
+    for (i = 0; i < n; i++) {
+        finish[i] = 0;
+    }
+
+    // Banker's Algorithm
+    while (count < n) {
+        int found = 0;
+        for (i = 0; i < n; i++) {
+            if (finish[i] == 0) {
+                int canProceed = 1;
+                for (j = 0; j < m; j++) {
+                    if (need[i][j] > avail[j]) {
+                        canProceed = 0;
+                        break;
+                    }
+                }
+                if (canProceed) {
+                    for (k = 0; k < m; k++) {
+                        avail[k] += alloc[i][k];
+                    }
+                    safeSequence[count++] = i;
+                    finish[i] = 1;
+                    found = 1;
+                }
+            }
+        }
+        if (found == 0) {
+            printf("\nThe system is in an unsafe state.\n");
+            return 0;
+        }
+    }
+
+    // Safe sequence output
+    printf("\nThe system is in a safe state.\nSafe sequence: ");
+    for (i = 0; i < n; i++) {
+        printf("P%d ", safeSequence[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
